@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فرمانیار — دستیار هوش مصنوعی فروشگاه ووکامرس شما</title>
+  <meta name="description" content="فرمانیار افزونه‌ای وردپرسی و سازگار با ووکامرس است که مدیریت فروشگاه را با هوش مصنوعی و از داخل تلگرام ساده می‌کند. فرمان بدهید — فروشگاه اجرا می‌کند!">
+  <meta property="og:title" content="فرمانیار — دستیار هوش مصنوعی فروشگاه ووکامرس">
+  <meta property="og:description" content="مدیریت فروشگاه ووکامرس با هوش مصنوعی؛ از پیشخوان و از تلگرام. فرمان بدهید — فروشگاه اجرا می‌کند!">
+  <meta property="og:image" content="assets/logo.webp">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <script>
+    /* جلوگیری از فلش تم اشتباه — قبل از بارگذاری صفحه */
+    (function () {
+      var t = localStorage.getItem('farmanyar-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══ سربرگ ═══ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="فرمانیار">
+        <img src="assets/logo-small.webp" alt="نشان فرمانیار" width="38" height="38">
+        فرمانیار
+      </a>
+      <nav class="main-nav" aria-label="ناوبری صفحه">
+        <a href="#features">امکانات</a>
+        <a href="#providers">ارائه‌دهنده‌ها</a>
+        <a href="#connects">اتصال‌ها</a>
+        <a href="#chat">گفت‌وگو</a>
+        <a href="#telegram">تلگرام</a>
+        <a href="#security">امنیت</a>
+        <a href="#samples">نمونه دستورها</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم روشن و تاریک" title="تغییر تم">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <a class="github-btn" href="https://github.com/sajjadinpython-lang/farmanyar-demo" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          <span>گیت‌هاب</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+  <!-- ═══ قهرمان صفحه ═══ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-logo reveal">
+          <img src="assets/logo.webp" alt="لوگوی فرمانیار؛ ربات دستیار با بلندگو و سبد خرید" width="300" height="300">
+        </div>
+        <div class="reveal" data-delay="1">
+          <span class="pill"><span class="dot"></span> افزونه وردپرس · نسخه ۳٫۱٫۰ · کاملاً سازگار با ووکامرس</span>
+          <h1>فرمانیار؛ <span class="accent">دستیار هوش مصنوعی</span> فروشگاه ووکامرس شما</h1>
+          <p class="lead">
+            فرمانیار افزونه‌ای وردپرسی است که کاملاً با ووکامرس سازگار است و مدیریت فروشگاه را برای شما ساده می‌کند.
+            هوش مصنوعی به فروشگاه وصل می‌شود و شما دیگر لازم نیست برای هر تغییر کوچکی میان صفحه‌های پیشخوان بالا و پایین بروید؛
+            <strong>به زبان خودتان می‌گویید چه می‌خواهید و انجام می‌شود.</strong>
+          </p>
+          <div class="hero-highlights">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> مدیریت فروشگاه از تلگرام</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> بیش از ۴۰ ارائه‌دهنده هوش مصنوعی</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> تأیید مدیر قبل از هر تغییر مهم</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#features">
+              مشاهده امکانات
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m7-7-7 7-7-7"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/sajjadinpython-lang/farmanyar-demo" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              دریافت از گیت‌هاب
+            </a>
+          </div>
+          <p class="tagline">فرمان بدهید — فروشگاه اجرا می‌کند!</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal"><b>+۴۰</b><span>ارائه‌دهندهٔ بومی هوش مصنوعی</span></div>
+        <div class="stat reveal" data-delay="1"><b>۲۰۰</b><span>محصول در یک فرمان</span></div>
+        <div class="stat reveal" data-delay="2"><b>۳</b><span>لایهٔ امنیتی تلگرام</span></div>
+        <div class="stat reveal" data-delay="3"><b>۹</b><span>قابلیت کلیدی فروشگاهی</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ امکانات کلیدی ═══ -->
+  <section id="features">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="kicker">امکانات کلیدی</span>
+        <h2>هرچه فروشگاه لازم دارد، با یک فرمان</h2>
+        <p>فرقی نمی‌کند تازه فروشگاه زده باشید یا فروشگاهی شلوغ با صدها محصول داشته باشید؛ فرمانیار زمان شما را آزاد می‌کند تا به جای کارهای تکراری، به رشد کسب‌وکارتان فکر کنید.</p>
+      </div>
+      <div class="grid-3">
+        <div class="f-card reveal">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4"/></svg></div>
+          <b>مدیریت کامل محصولات</b>
+          <p>ساخت، ویرایش، حذف و مشاهدهٔ اطلاعات محصولات؛ از قیمت و موجودی تا توضیحات و تصاویر.</p>
+        </div>
+        <div class="f-card reveal" data-delay="1">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div>
+          <b>سفارش‌ها و مشتریان</b>
+          <p>مشاهدهٔ اطلاعات مشتریان و سفارش‌ها و تغییر وضعیت سفارش‌ها، بدون گشتن در صفحه‌های پیشخوان.</p>
+        </div>
+        <div class="f-card reveal" data-delay="2">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 11v2M13 17v2"/></svg></div>
+          <b>کدهای تخفیف</b>
+          <p>ساخت، ویرایش و حذف کد تخفیف با همهٔ قواعد ووکامرس؛ فقط بگویید چه تخفیفی می‌خواهید.</p>
+        </div>
+        <div class="f-card reveal">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 16c0-4 2-12 6-12s6 8 6 12"/></svg></div>
+          <b>دسته‌بندی‌ها</b>
+          <p>ساخت، ویرایش و حذف دسته‌بندی؛ ساختار فروشگاه را منظم و مرتب نگه دارید.</p>
+        </div>
+        <div class="f-card reveal" data-delay="1">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div>
+          <b>افزودن دسته‌جمعی</b>
+          <p>افزودن محصولات یا کدهای تخفیف از فایل CSV، به‌صورت مرحله‌به‌مرحله و با بررسی پیش از ثبت.</p>
+        </div>
+        <div class="f-card reveal" data-delay="2">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+          <b>خواندن فایل‌های اکسل و متنی</b>
+          <p>فایل اکسل، CSV یا متنی را پیوست کنید تا فرمانیار محتوایش را بخواند و بر اساس آن عمل کند.</p>
+        </div>
+        <div class="f-card reveal">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg></div>
+          <b>توضیح محصول از تصویر</b>
+          <p>اگر مدل انتخابی شما از تصویر پشتیبانی کند، عکس محصول را بفرستید تا توضیحاتش نوشته شود.</p>
+        </div>
+        <div class="f-card reveal" data-delay="1">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 .74-.2 1.43-.55 2.03L20 8l-1.5 4.5L20 18l-6.5-.5A4 4 0 0 1 12 22a4 4 0 0 1-1.5-4.5L4 18l1.5-5.5L4 8l6.55.03A4 4 0 0 1 12 2Z"/></svg></div>
+          <b>شخصی‌سازی دستیار</b>
+          <p>نام دستیار و لحن و سبک نوشتنش را بر اساس نمونه‌متن‌هایی که به او می‌دهید تنظیم کنید.</p>
+        </div>
+        <div class="f-card reveal" data-delay="2">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 6 6M6 3 3 6"/><path d="M9 9 3 15v6h6l6-6"/><path d="m15 9 6-6v6h-6Z"/></svg></div>
+          <b>تغییر گروهی با یک فرمان</b>
+          <p>قیمت‌ها و اطلاعات ۱ تا ۲۰۰ محصول را در یک فراخوانی تغییر دهید؛ درصدی یا مبلغی، با فیلتر دسته یا موجودی.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ارائه‌دهنده‌ها ═══ -->
+  <section id="providers">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="kicker">سرویس‌های هوش مصنوعی</span>
+        <h2>اتصال به بیش از ۴۰ ارائه‌دهنده؛ آزادانه انتخاب کنید</h2>
+        <p>فرمانیار با سرویس‌های معروفی مثل GapGPT و هوشیار۲۴ کار می‌کند و در مجموع از تمام ارائه‌دهنده‌های ایرانی و خارجیِ سازگار با استاندارد OpenAI پشتیبانی می‌کند؛ بیش از ۴۰ ارائه‌دهنده به‌صورت بومی و بقیه هم با کمی سفارشی‌سازی.</p>
+      </div>
+      <div class="split reveal">
+        <div class="shot-col">
+          <figure class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-title">farmanyar / api</span></div>
+            <img src="assets/providers.webp" alt="کارت‌های ارائه‌دهنده‌های هوش مصنوعی در صفحهٔ فرمانیار؛ از GapGPT و OpenAI تا Gemini و Z.AI" loading="lazy" width="1098" height="538">
+            <figcaption>صفحهٔ انتخاب ارائه‌دهنده در فرمانیار — هر کارت آمادهٔ اتصال است</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>هر سرویسی که دوست دارید</h3>
+          <p class="desc">
+            هر ارائه‌دهنده در فرمانیار یک کارت ساده دارد: نام سرویس، آدرس API و کلید شما.
+            سرویس ایرانی یا خارجی، ابری یا لوکال — <strong>مهم نیست؛ فرمانیار با همهٔ آن‌ها حرف می‌زند.</strong>
+          </p>
+          <ul class="feature-list">
+            <li>
+              <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
+              <div><b>پشتیبانی بومی از بیش از ۴۰ ارائه‌دهنده</b><p>از GapGPT و هوشیار۲۴ تا OpenAI، Gemini، Groq و DeepSeek — آماده و بدون تنظیم اضافه.</p></div>
+            </li>
+            <li>
+              <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span>
+              <div><b>سازگار با استاندارد OpenAI</b><p>تقریباً هر ارائه‌دهنده‌ای که با قالب OpenAI سازگار باشد، با کمی شخصی‌سازی متصل می‌شود.</p></div>
+            </li>
+            <li>
+              <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="8" rx="2"/><rect x="2" y="12" width="20" height="8" rx="2"/><path d="M6 8h.01M6 16h.01"/></svg></span>
+              <div><b>حتی سرویس‌های لوکال</b><p>Ollama و LM Studio روی سیستم خودتان هم به‌صورت بومی پشتیبانی می‌شوند — بدون کلید API.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="chips reveal" aria-label="فهرست نمونه‌ای از ارائه‌دهنده‌های پشتیبانی‌شده">
+        <span>GapGPT</span><span>هوشیار۲۴</span><span>OpenAI</span><span>OpenRouter</span><span>Google Gemini</span>
+        <span>DeepSeek</span><span>Groq</span><span>Mistral</span><span>xAI (Grok)</span><span>Z.AI (GLM)</span>
+        <span>Together AI</span><span>Fireworks</span><span>Cerebras</span><span>Perplexity</span><span>Cohere</span>
+        <span>Hugging Face</span><span>NVIDIA NIM</span><span>Kimi</span><span>Qwen</span><span>MiniMax</span>
+        <span>Ollama</span><span>LM Studio</span><span class="more">و ده‌ها سرویس دیگر…</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ اتصال‌های من ═══ -->
+  <section id="connects">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="kicker">مدیریت اتصال‌ها</span>
+        <h2>«اتصال‌های من»؛ همهٔ سرویس‌ها یک‌جا</h2>
+        <p>هر اتصال شما یک کارت است با نام، آدرس، مدل و کلید. تست، ویرایش، فعال‌سازی و حذف — همه در همان یک نگاه.</p>
+      </div>
+      <div class="split flip reveal">
+        <div class="shot-col">
+          <figure class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-title">farmanyar / connections</span></div>
+            <img src="assets/my-connects.webp" alt="فهرست اتصال‌های ذخیره‌شده در فرمانیار با دکمه‌های تست اتصال، فعال‌سازی، ویرایش و حذف" loading="lazy" width="1200" height="540">
+            <figcaption>فهرست اتصال‌ها — اتصال فعال و اتصال مخصوص ربات‌های تلگرام مشخص شده‌اند</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>هر کارت اتصال، این امکانات را دارد</h3>
+          <p class="desc">اتصالِ «فعال» پیش‌فرض گفت‌وگوهای تازه است؛ در هر گفت‌وگو می‌توانید اتصال و مدل دیگری انتخاب کنید.</p>
+          <ul class="feature-list">
+            <li>
+              <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+              <div><b>تست اتصال</b><p>با یک کلیک سلامت اتصال بررسی می‌شود؛ در صورت موفقیت، پیام سبز «موفقیت اتصال» همراه با تعداد مدل‌های در دسترس نمایش داده می‌شود.</p></div>
+            </li>
+            <li>
+              <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></span>
+              <div><b>ویرایش اتصال</b><p>تغییر نام، آدرس، کلید و مدل هر زمان که خواستید. اگر فیلد کلید را خالی بگذارید، کلید قبلی حفظ می‌شود.</p></div>
+            </li>
+            <li>
+              <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8m4-4-4 4-4-4"/><path d="M5 12a7 7 0 0 0 14 0"/></svg></span>
+              <div><b>فعال‌سازی برای گفت‌وگو</b><p>ارائه‌دهندهٔ پیش‌فرض گفت‌وگوهای تازه در پیشخوان را تعیین کنید.</p></div>
+            </li>
+            <li>
+              <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+              <div><b>فعال برای ربات‌های تلگرام</b><p>تعیین کنید گفت‌وگوی تمام ربات‌های تلگرام از کدام اتصال و مدل استفاده کنند — مستقل از اتصال پیشخوان.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ گفت‌وگوی اختصاصی ═══ -->
+  <section id="chat">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="kicker">صفحهٔ گفت‌وگو</span>
+        <h2>گفت‌وگوی اختصاصی با هوش مصنوعی، داخل پیشخوان</h2>
+        <p>یک صفحهٔ گفت‌وگوی کامل و فارسی در پیشخوان وردپرس؛ با تاریخچهٔ گفت‌وگوها، انتخاب اتصال و مدل، و امکان ارسال تصویر و پیوست فایل.</p>
+      </div>
+      <div class="split reveal">
+        <div class="shot-col">
+          <figure class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-title">farmanyar / chat</span></div>
+            <img src="assets/chat.webp" alt="صفحهٔ گفت‌وگوی اختصاصی فرمانیار با انتخاب مدل، تاریخچهٔ گفت‌وگوها و دکمه‌های ارسال تصویر و فایل" loading="lazy" width="1209" height="536">
+            <figcaption>گفت‌وگوی اختصاصی — انتخاب مدل، تاریخچه و ارسال تصویر و فایل</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>با هوش مصنوعی حرف بزنید، نه با پیشخوان</h3>
+          <p class="desc">
+            در هر گفت‌وگو می‌توانید اتصال و مدل دیگری انتخاب کنید. گفت‌وگوهای قبلی در ستون تاریخچه ذخیره می‌شوند و هر گفت‌وگو قابل پین یا حذف است.
+            <strong>Enter برای ارسال و Shift+Enter برای خط جدید.</strong>
+          </p>
+          <ul class="feature-list">
+            <li>
+              <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg></span>
+              <div><b>ارسال تصویر به مدل</b><p>اگر مدل انتخابی شما از تصویر پشتیبانی کند، عکس محصول را بفرستید و توضیحات کامل محصول را بگیرید.</p></div>
+            </li>
+            <li>
+              <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.4 11.1-9-9a2 2 0 0 0-2.8 0l-9 9a2 2 0 0 0 0 2.8l9 9a2 2 0 0 0 2.8 0l9-9a2 2 0 0 0 0-2.8Z"/><path d="M8 12h8"/></svg></span>
+              <div><b>پیوست فایل فروشگاه</b><p>فایل‌های CSV، اکسل و متنی را پیوست کنید؛ متن فایل روی سرور خوانده می‌شود و فقط متنِ استخراج‌شده برای هوش ارسال می‌گردد — نه خود فایل.</p></div>
+            </li>
+            <li>
+              <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
+              <div><b>فرمت‌های قابل پیوست</b><p><code>CSV</code> <code>TSV</code> <code>XLSX</code> <code>XLSM</code> <code>TXT</code> <code>MD</code> <code>JSON</code> <code>XML</code> <code>HTML</code> <code>LOG</code> — داده‌های فروشگاه را بدهید تا دستورها دقیق‌تر شوند.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ تلگرام ═══ -->
+  <section id="telegram">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="kicker">ربات تلگرام</span>
+        <h2>مدیریت فروشگاه از تلگرام؛ بدون نیاز به رایانه</h2>
+        <p>فرمانیار به ربات تلگرام وصل می‌شود و از گوشی هم می‌توانید فروشگاه را مدیریت کنید؛ سفارش‌ها را ببینید، محصول بسازید و کد تخفیف تعریف کنید. همه‌چیز داخل تلگرام.</p>
+      </div>
+      <div class="split flip reveal">
+        <div class="shot-col">
+          <figure class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-title">farmanyar / telegram</span></div>
+            <img src="assets/telegram.webp" alt="تنظیمات ربات تلگرام در فرمانیار؛ شامل توکن بات و روش دریافت پیام (وبهوک یا دریافت دوره‌ای)" loading="lazy" width="1220" height="353">
+            <figcaption>تنظیمات ربات تلگرام — توکن بات و انتخاب روش دریافت پیام</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>دو راه برای دریافت پیام‌های تلگرام</h3>
+          <p class="desc">فرمانیار از دو روش دریافت پیام پشتیبانی می‌کند: <strong>وبهوک</strong> برای تحویل فوری و <strong>دریافت دوره‌ای (Polling)</strong> برای هر هاستی. تفاوت این دو را با یک تشبیه ساده بفهمید:</p>
+          <div class="compare">
+            <div class="cmp-card best">
+              <div class="cmp-head">
+                <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
+                <div><b>وبهوک (Webhook)</b><small>تحویل فوری و مستقیم</small></div>
+                <span class="badge-best">پیشنهاد فرمانیار</span>
+              </div>
+              <p>مثل این است که <strong>آدرس خانه‌تان را به پستچی بدهید</strong> تا نامه را همان لحظهٔ رسیدن بیاورد دم در. تلگرام خودش هر پیام را بی‌درنگ و مستقیم به سایت شما تحویل می‌دهد.</p>
+              <ul class="cmp-list">
+                <li><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>سریع‌تر و سبک‌تر؛ سرور فقط وقت‌هایی کار می‌کند که واقعاً پیامی هست</span></li>
+                <li><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>مناسب فروشگاه با دامنهٔ عمومی و گواهی HTTPS معتبر</span></li>
+                <li><svg class="warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg><span>نیازمند هاست عمومی HTTPS — روی سرور لوکال کار نمی‌کند</span></li>
+              </ul>
+            </div>
+            <div class="cmp-card polling">
+              <div class="cmp-head">
+                <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></span>
+                <div><b>دریافت دوره‌ای (Polling)</b><small>هر ۱۰ ثانیه یک‌بار</small></div>
+              </div>
+              <p>مثل این است که <strong>هر چند دقیقه خودتان به صندوق پستی سر بزنید</strong> و بپرسید «نامهٔ جدیدی دارید؟». افزونه به‌صورت خودکار و پیوسته به تلگرام سر می‌زند و پیام‌های جدید را برمی‌دارد.</p>
+              <ul class="cmp-list">
+                <li><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>بدون تنظیم خاصی کار می‌کند؛ روی هر هاستی حتی سرورهای داخلی و لوکال</span></li>
+                <li><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>گزینهٔ جایگزین وقتی سایت از اینترنت قابل دسترسی نیست</span></li>
+                <li><svg class="warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg><span>پیام‌ها با کمی تأخیر دریافت می‌شوند و سرور همیشه در حال سر زدن است</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="note-strip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+            <div>اگر فروشگاه شما یک سایت معمولی با دامنه و SSL است (بیشتر فروشگاه‌ها همین‌اند)، <strong>وبهوک</strong> انتخاب بهتری است. اگر سایت فقط روی شبکهٔ داخلی اجرا می‌شود، تنها گزینه <strong>Polling</strong> است. نکتهٔ مهم: برای یک ربات، این دو روش هم‌زمان کار نمی‌کنند؛ فقط یکی را فعال کنید.</div>
+          </div>
+        </div>
+      </div>
+      <div class="split reveal" style="margin-top:56px">
+        <div class="shot-col">
+          <figure class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-title">webhook setup</span></div>
+            <img src="assets/telegram.webp" alt="فعال‌سازی وبهوک ربات تلگرام در تب امنیت فرمانیار" loading="lazy" width="1220" height="353">
+            <figcaption>فعال‌سازی وبهوک از تب «امنیت» انجام می‌شود</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>فعال‌سازی وبهوک، در سه گام</h3>
+          <p class="desc">برای دریافت فوری پیام‌های تلگرام روی هاست عمومی HTTPS، این سه گام را انجام دهید:</p>
+          <ol class="steps">
+            <li><div><b>Polling را غیرفعال کنید</b><p>در تب «امنیت»، گزینهٔ دریافت دوره‌ای (Polling) را خاموش و تنظیمات را ذخیره کنید.</p></div></li>
+            <li><div><b>ثبت وبهوک</b><p>دکمهٔ «ثبت وبهوک برای ربات انتخاب‌شده» را بزنید و منتظر پیام موفقیت بمانید. آدرس وبهوک همراه کلید امنیتی خودکار ثبت می‌شود؛ نیازی به ساختن دستی آن نیست.</p></div></li>
+            <li><div><b>آزمایش کنید</b><p>از حساب مجاز، در گفتگوی خصوصی ربات یک درخواست فقط‌خواندنی (مثل گزارش فروش) بفرستید و رسیدن پاسخ را بررسی کنید.</p></div></li>
+          </ol>
+          <div class="note-strip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+            <div>در نصب چندرباتی، این کار را برای تک‌تک ربات‌های فعال تکرار کنید. اگر قبلاً وبهوک ثبت شده و می‌خواهید به Polling برگردید، ابتدا وبهوک قبلی حذف شود تا پیام‌ها از دست نروند.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ امنیت ═══ -->
+  <section id="security">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="kicker">امنیت و کنترل کامل</span>
+        <h2>امنیت در سه لایه؛ اختیار همیشه دست خودتان</h2>
+        <p>قبل از اینکه فرمانیار کاری مهم انجام دهد — مثلاً محصولی را ویرایش یا حذف کند — از شما اجازه می‌گیرد. هر درخواست عملیات به‌صورت کارت تأیید نمایش داده می‌شود: یک‌بارمصرف، منقضاشدنی و مقید به همان عملیات و مقادیر تأییدشده.</p>
+      </div>
+      <div class="split flip reveal">
+        <div class="shot-col">
+          <figure class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="shot-title">farmanyar / security</span></div>
+            <img src="assets/security.webp" alt="صفحهٔ لایه‌های امنیتی فرمانیار در تب امنیت؛ شامل رمز عبور و لایه‌های دسترسی" loading="lazy" width="1163" height="503">
+            <figcaption>لایه‌های امنیتی و رمز عبور در تب «امنیت»</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>سه لایهٔ امنیتی دسترسی به ربات</h3>
+          <p class="desc">هر تعداد از لایه‌ها را که بخواهید فعال کنید؛ خالی گذاشتن همه، هر سه لایه را فعال می‌کند.</p>
+        </div>
+      </div>
+      <div class="layers">
+        <div class="layer-card reveal">
+          <span class="layer-num">۱</span>
+          <b>دسترسی با رمز عبور</b>
+          <p>تا زمانی که دستور <code>/رمز گذرواژه</code> در تلگرام فرستاده نشود، هیچ دستوری اجرا نمی‌شود. پس از ورود موفق، دسترسی تا ۱۲ ساعت باز می‌ماند.</p>
+        </div>
+        <div class="layer-card reveal" data-delay="1">
+          <span class="layer-num">۲</span>
+          <b>دسترسی با یوزرنیم تلگرام</b>
+          <p>فقط یوزرنیم‌هایی که در لیست مجاز باشند می‌توانند از ربات استفاده کنند؛ بقیه حتی با داشتن توکن هم راهی به فروشگاه ندارند.</p>
+        </div>
+        <div class="layer-card reveal" data-delay="2">
+          <span class="layer-num">۳</span>
+          <b>دسترسی با شناسهٔ گفت‌وگو</b>
+          <p>فقط گفت‌وگوهایی مجازند که شناسه‌شان در لیست باشد. دکمهٔ «همگام‌سازی» گفت‌وگوهای اخیر ربات را به‌صورت خودکار به لیست اضافه می‌کند.</p>
+        </div>
+      </div>
+      <div class="note-strip reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+        <div>کلیدهای API در پایگاه دادهٔ وردپرس ذخیره می‌شوند و در مرورگر به‌صورت ماسک‌شده نمایش داده می‌وند. تغییر تنظیمات امنیتی، نشست‌های ورود قبلی را باطل می‌کند.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ نمونه دستورها ═══ -->
+  <section id="samples">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="kicker">دموی زندهٔ فرمان‌ها</span>
+        <h2>دو نمونه دستور برای یک فروشگاه واقعی</h2>
+        <p>این دو دستور از پرتکرارترین نیازهای یک فروشگاه واقعی طراحی شده‌اند. فرمان را می‌فرستید، فرمانیار پیشنهاد عملیات را در یک کارت تأیید نشان می‌دهد و فقط پس از تأیید شما اجرا می‌شود.</p>
+      </div>
+
+      <div class="cmd-card reveal">
+        <div>
+          <div class="cmd-bubble">
+            قیمت همهٔ محصولات دسته‌بندی «کفش ورزشی» را ۱۰٪ افزایش بده و روی کالاهایی که موجودی‌شان کمتر از ۳ عدد است، تخفیف ۱۵٪ بگذار.
+          </div>
+          <ul class="cmd-flow">
+            <li><b>جست‌وجوی محصولات:</b> فرمانیار محصولات دستهٔ «کفش ورزشی» را پیدا می‌کند و موجودی هر یک را بررسی می‌کند.</li>
+            <li><b>کارت تأیید مدیر:</b> فهرست تغییرات پیشنهادی — قیمت قبل و بعد، تعداد اقلام مشمول تخفیف — برای شما نمایش داده می‌شود.</li>
+            <li><b>اجرای گروهی:</b> با تأیید شما، تا ۲۰۰ محصول در یک فراخوانی به‌روزرسانی می‌شود و گزارش نتیجه را می‌گیرید.</li>
+          </ul>
+        </div>
+        <div class="approval" data-approval="command-1" aria-label="تصویر کارت تأیید دستور نخست">
+          <img alt="کارت درخواست تأیید برای تغییر گروهی قیمت‌ها" loading="lazy">
+          <div class="empty-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m21 15-3.5-3.5a2 2 0 0 0-2.8 0L6 20"/><circle cx="9" cy="9" r="2"/></svg>
+            <b>محل تصویر «کارت تأیید» این دستور</b>
+            تصویر درخواست تأیید را با این نام در این مسیر قرار دهید:<br>
+            <code>assets/approvals/command-1.png</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="cmd-card reveal">
+        <div>
+          <div class="cmd-bubble">
+            یک کد تخفیف WELCOME15 بساز: ۱۵٪ تخفیف برای خریدهای بالای ۲ میلیون تومان، هر مشتری فقط یک‌بار بتواند استفاده کند و تا پایان ماه اعتبار داشته باشد.
+          </div>
+          <ul class="cmd-flow">
+            <li><b>استخراج قواعد:</b> فرمانیار مقدار تخفیف، حداقل خرید، محدودیت مصرف هر کاربر و تاریخ انقضا را از متن شما استخراج می‌کند.</li>
+            <li><b>کارت تأیید مدیر:</b> پیش‌نمایش کامل کد تخفیف با همهٔ قواعد ووکامرس — از محصولات مجاز تا سقف مصرف — نمایش داده می‌شود.</li>
+            <li><b>ساخت و فعال‌سازی:</b> با تأیید شما، کد تخفیف در ووکامرس ساخته و بلافاصله قابل استفاده می‌شود.</li>
+          </ul>
+        </div>
+        <div class="approval" data-approval="command-2" aria-label="تصویر کارت تأیید دستور دوم">
+          <img alt="کارت درخواست تأیید برای ساخت کد تخفیف" loading="lazy">
+          <div class="empty-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m21 15-3.5-3.5a2 2 0 0 0-2.8 0L6 20"/><circle cx="9" cy="9" r="2"/></svg>
+            <b>محل تصویر «کارت تأیید» این دستور</b>
+            تصویر درخواست تأیید را با این نام در این مسیر قرار دهید:<br>
+            <code>assets/approvals/command-2.png</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ نصب ═══ -->
+  <section id="install">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="kicker">نصب سریع و بدون دردسر</span>
+        <h2>در چند دقیقه، دستیار شما آمادهٔ کار است</h2>
+        <p>نصب فرمانیار چند دقیقه بیشتر وقت نمی‌گیرد؛ افزونه را نصب می‌کنید، کلید API سرویس دلخواهتان را وارد می‌کنید و از همان لحظه دستیارتان آمادهٔ کار است.</p>
+      </div>
+      <div class="install-grid">
+        <div class="install-step reveal">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg></div>
+          <b>۱. نصب افزونه</b>
+          <p>فایل افزونه را در وردپرس بارگذاری و فعال کنید؛ ووکامرس هم فعال باشد.</p>
+        </div>
+        <div class="install-step reveal" data-delay="1">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></svg></div>
+          <b>۲. وارد کردن کلید API</b>
+          <p>از میان بیش از ۴۰ ارائه‌دهنده، سرویس دلخواهتان را انتخاب و کلید API آن را وارد کنید.</p>
+        </div>
+        <div class="install-step reveal" data-delay="2">
+          <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2 2c-9.4 0-16-6.6-16-16a2 2 0 0 1 2-2Z"/><path d="M14 3h7v7"/></svg></div>
+          <b>۳. فرمان بدهید!</b>
+          <p>از پیشخوان یا تلگرام، به زبان خودتان بگویید چه می‌خواهید؛ فروشگاه اجرا می‌کند.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ═══ پاصفحه ═══ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="big">فرمان بدهید — <span class="accent">فروشگاه اجرا می‌کند!</span></div>
+      <p>فرقی نمی‌کند تازه فروشگاه زده باشید یا فروشگاهی شلوغ با صدها محصول داشته باشید؛ فرمانیار زمان شما را آزاد می‌کند تا به جای کارهای تکراری، به رشد کسب‌وکارتان فکر کنید.</p>
+      <div class="footer-meta">
+        <span>فرمانیار · نسخه ۳٫۱٫۰</span>
+        <span>توسعه‌دهنده: <a href="https://github.com/sajjadinpython-lang" target="_blank" rel="noopener">سجاد خودامی</a></span>
+        <a href="https://github.com/sajjadinpython-lang/farmanyar-demo" target="_blank" rel="noopener">کد منبع در گیت‌هاب</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
