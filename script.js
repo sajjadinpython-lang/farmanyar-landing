@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════
    فرمانیار — اسکریپت صفحه دمو
-   تم روشن/تاریک · انیمیشن ظاهرشدن · بارگذاری تصاویر تأیید
+   تم روشن/تاریک · انیمیشن ظاهرشدن · fallback تصاویر
    ═══════════════════════════════════════════ */
 (function () {
   'use strict';
@@ -40,65 +40,41 @@
   }
 
   /* ── تصویر بخش راهنمای فعال‌سازی وبهوک ──────
-     تصویر اختصاصی این بخش را با نام webhook-guide و هر یک از
-     پسوندهای زیر در پوشهٔ assets قرار دهید؛ در صورت نبودِ فایل،
-     تصویر پیش‌فرض (telegram.webp) نمایش داده می‌شود. */
+     تصویر اختصاصی (assets/webhook-guide.webp) در خود HTML قرار دارد؛
+     اگر به هر دلیلی یافت نشد، تصویر تنظیمات تلگرام جایگزین می‌شود. */
   var webhookImg = document.getElementById('webhookShot');
   if (webhookImg) {
-    var wIdx = 0;
-    var wExts = ['png', 'webp', 'jpg', 'jpeg', 'gif'];
-
-    function tryWebhook() {
-      if (wIdx >= wExts.length) {
-        /* تصویر اختصاصی پیدا نشد — پیش‌فرض */
-        webhookImg.src = 'assets/telegram.webp';
-        return;
-      }
-      webhookImg.src = 'assets/webhook-guide.' + wExts[wIdx++];
+    var wbFbUsed = false;
+    function wbFallback() {
+      if (wbFbUsed) return;
+      wbFbUsed = true;
+      webhookImg.src = 'assets/telegram.webp';
     }
-
-    webhookImg.addEventListener('error', tryWebhook);
-    tryWebhook();
+    webhookImg.addEventListener('error', wbFallback);
+    /* اگر تصویر پیش از اجرای اسکریپت خطا داده باشد */
+    if (webhookImg.complete && webhookImg.naturalWidth < 2) wbFallback();
   }
 
   /* ── تصاویر کارت تأیید (نمونه دستورها) ──────
-     فایل را با هر یک از این پسوندها در پوشهٔ
-     assets/approvals قرار دهید؛ خودکار پیدا و نمایش داده می‌شود. */
-  var EXTENSIONS = ['png', 'webp', 'jpg', 'jpeg', 'gif'];
-
+     تصاویر (assets/approvals/command-1.webp و command-2.webp) مستقیم در
+     HTML قرار دارند؛ این بخش فقط قاب را پس از بارگذاری سبک می‌کند و
+     اگر فایلی نبود، کادر خالی نشان می‌دهد. */
   document.querySelectorAll('.approval[data-approval]').forEach(function (box) {
     var img = box.querySelector('img');
-    var hint = box.querySelector('.empty-hint');
     if (!img) return;
-    var idx = 0;
 
-    function tryNext() {
-      if (idx >= EXTENSIONS.length) {
-        /* هیچ فایلی پیدا نشد — راهنمای جای‌گذاری نمایش داده می‌شود */
-        img.removeAttribute('src');
-        box.classList.remove('is-loaded');
-        if (hint) hint.style.display = '';
-        return;
-      }
-      var ext = EXTENSIONS[idx++];
-      img.src = 'assets/approvals/' + box.dataset.approval + '.' + ext;
+    function markLoaded() {
+      if (img.naturalWidth > 2) box.classList.add('is-loaded');
     }
 
+    img.addEventListener('load', markLoaded);
     img.addEventListener('error', function () {
-      /* فایل با این پسوند نبود؛ پسوند بعدی امتحان شود */
-      tryNext();
-    });
-    img.addEventListener('load', function () {
-      if (img.naturalWidth > 2) {
-        box.classList.add('is-loaded');
-        if (hint) hint.style.display = 'none';
-      } else {
-        tryNext();
-      }
+      img.removeAttribute('src');
+      box.classList.remove('is-loaded');
     });
 
-    if (hint) hint.style.display = 'none'; /* تا زمانی که نتیجه معلوم نشود */
-    tryNext();
+    /* اگر تصویر پیش از اجرای اسکریپت بارگذاری شده باشد */
+    if (img.complete) markLoaded();
   });
 
   /* ── هایلایت لینک فعال در ناوبری ──────────── */
