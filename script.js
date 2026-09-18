@@ -39,6 +39,28 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ── تصویر بخش راهنمای فعال‌سازی وبهوک ──────
+     تصویر اختصاصی این بخش را با نام webhook-guide و هر یک از
+     پسوندهای زیر در پوشهٔ assets قرار دهید؛ در صورت نبودِ فایل،
+     تصویر پیش‌فرض (telegram.webp) نمایش داده می‌شود. */
+  var webhookImg = document.getElementById('webhookShot');
+  if (webhookImg) {
+    var wIdx = 0;
+    var wExts = ['png', 'webp', 'jpg', 'jpeg', 'gif'];
+
+    function tryWebhook() {
+      if (wIdx >= wExts.length) {
+        /* تصویر اختصاصی پیدا نشد — پیش‌فرض */
+        webhookImg.src = 'assets/telegram.webp';
+        return;
+      }
+      webhookImg.src = 'assets/webhook-guide.' + wExts[wIdx++];
+    }
+
+    webhookImg.addEventListener('error', tryWebhook);
+    tryWebhook();
+  }
+
   /* ── تصاویر کارت تأیید (نمونه دستورها) ──────
      فایل را با هر یک از این پسوندها در پوشهٔ
      assets/approvals قرار دهید؛ خودکار پیدا و نمایش داده می‌شود. */

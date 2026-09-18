@@ -149,24 +149,6 @@ section:nth-of-type(even) { background: var(--surface); border-block: 1px solid 
 [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
-.github-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 18px;
-  border-radius: 12px;
-  background: var(--ink);
-  color: var(--bg);
-  font-weight: 600;
-  font-size: .9rem;
-  border: 1px solid transparent;
-  transition: opacity .2s, transform .2s, border-color .2s;
-}
-.github-btn:hover { opacity: .88; color: var(--bg); transform: translateY(-1px); }
-[data-theme="dark"] .github-btn { background: var(--surface); color: var(--ink); border-color: var(--line); }
-[data-theme="dark"] .github-btn:hover { color: var(--ink); border-color: var(--accent); }
-.github-btn svg { width: 18px; height: 18px; }
-
 /* ── قهرمان صفحه (Hero) ────────────────────── */
 .hero { padding: 88px 0 72px; position: relative; overflow: hidden; }
 
@@ -206,6 +188,7 @@ section:nth-of-type(even) { background: var(--surface); border-block: 1px solid 
 }
 .hero-logo img {
   width: min(300px, 100%);
+  height: auto;
   filter: drop-shadow(0 24px 42px rgba(37, 99, 235, .25));
   animation: float 6s ease-in-out infinite;
 }
@@ -432,7 +415,12 @@ section:nth-of-type(even) { background: var(--surface); border-block: 1px solid 
   padding: 1px 12px;
   direction: ltr;
 }
-.shot img { width: 100%; border-radius: 10px; border: 1px solid var(--line); }
+.shot img {
+  width: 100%;
+  height: auto;               /* حفظ نسبت ابعاد اصلی — بدون کشیدگی */
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
 .shot figcaption {
   text-align: center;
   font-size: .8rem;
@@ -780,7 +768,5 @@ section:nth-of-type(even) { background: var(--surface); border-block: 1px solid 
   .hero { padding: 56px 0 48px; }
   .grid-3, .layers, .install-grid, .stats { grid-template-columns: 1fr; }
   .main-nav { display: none; }
-  .github-btn span { display: none; }
-  .github-btn { padding: 9px 12px; }
   .cmd-card, .f-card { padding: 22px 18px; }
 }
