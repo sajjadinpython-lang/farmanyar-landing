@@ -183,23 +183,13 @@ section:nth-of-type(even) { background: var(--surface); border-block: 1px solid 
   inset: 0;
   border-radius: 42% 58% 55% 45% / 48% 44% 56% 52%;
   background: linear-gradient(140deg, var(--accent-soft), transparent 70%);
-  animation: blob 12s ease-in-out infinite;
   z-index: -1;
 }
+/* لوگو ثابت است — بدون انیمیشن شناور، برای کاهش پردازش */
 .hero-logo img {
   width: min(300px, 100%);
   height: auto;
   filter: drop-shadow(0 24px 42px rgba(37, 99, 235, .25));
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-}
-@keyframes blob {
-  0%, 100% { border-radius: 42% 58% 55% 45% / 48% 44% 56% 52%; }
-  50% { border-radius: 56% 44% 46% 54% / 44% 56% 44% 56%; }
 }
 
 .pill {
@@ -416,10 +406,13 @@ section:nth-of-type(even) { background: var(--surface); border-block: 1px solid 
   direction: ltr;
 }
 .shot img {
-  width: 100%;
+  width: auto;                /* هرگز بزرگ‌تر از ابعاد طبیعی نمی‌شود — فقط در صورت لزوم کوچک می‌شود */
+  max-width: 100%;
   height: auto;               /* حفظ نسبت ابعاد اصلی — بدون کشیدگی */
+  margin-inline: auto;        /* در صورت باریک‌تر بودن از ستون، وسط چیده می‌شود */
   border-radius: 10px;
   border: 1px solid var(--line);
+  cursor: zoom-in;            /* با کلیک، در ابعاد اصلی نمایش داده می‌شود */
 }
 .shot figcaption {
   text-align: center;
@@ -676,7 +669,14 @@ section:nth-of-type(even) { background: var(--surface); border-block: 1px solid 
   place-items: center;
   background: var(--surface-2);
 }
-.approval img { width: 100%; height: 100%; object-fit: contain; }
+/* تصویر در ابعاد طبیعی خودش نمایش داده می‌شود؛ فقط اگر از قاب بزرگ‌تر باشد کوچک می‌شود */
+.approval img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  cursor: zoom-in;
+}
 .approval.is-loaded { border-style: solid; border-color: var(--line); min-height: 0; }
 
 /* ── نصب ────────────────────────────────────── */
@@ -702,6 +702,89 @@ section:nth-of-type(even) { background: var(--surface); border-block: 1px solid 
 .install-step .fi svg { width: 25px; height: 25px; }
 .install-step b { display: block; font-size: 1rem; margin-bottom: 6px; }
 .install-step p { font-size: .87rem; color: var(--muted); line-height: 1.95; }
+
+/* ── لایت‌باکس: نمایش تصویر در ابعاد اصلی ─── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  background: rgba(7, 15, 28, .93);
+  animation: lb-fade .18s ease;
+}
+@keyframes lb-fade { from { opacity: 0; } }
+
+.lightbox-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  color: #eaf1fb;
+  flex-shrink: 0;
+}
+.lb-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .22);
+  color: #fff;
+  transition: background .2s;
+}
+.lb-close:hover { background: rgba(255, 255, 255, .22); }
+.lb-close svg { width: 18px; height: 18px; }
+
+.lightbox-bar .lb-size {
+  margin-inline-start: auto;
+  font-size: .8rem;
+  color: #b9c7dc;
+  direction: ltr;
+  white-space: nowrap;
+}
+.lb-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: #cfe0ff;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 999px;
+  padding: 6px 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color .2s, color .2s;
+}
+.lb-open:hover { border-color: #fff; color: #fff; }
+.lb-open svg { width: 14px; height: 14px; }
+
+.lightbox-stage {
+  flex: 1;
+  overflow: auto;             /* تصویر بزرگ‌تر از صفحه → اسکرول */
+  padding: 6px 16px 20px;
+}
+/* تصویر دقیقاً در ابعاد اصلی و پیکسل‌به‌پیکسل — نه بزرگ‌تر، نه کوچک‌تر */
+.lightbox-stage img {
+  display: block;
+  margin: auto;               /* کوچک‌تر از صفحه → وسط؛ بزرگ‌تر → قابل اسکرول از هر دو طرف */
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .55);
+}
+.lightbox-hint {
+  flex-shrink: 0;
+  text-align: center;
+  font-size: .78rem;
+  color: #93a5c0;
+  padding: 8px 16px 12px;
+}
 
 /* ── پاصفحه ─────────────────────────────────── */
 .site-footer {
@@ -738,7 +821,7 @@ section:nth-of-type(even) { background: var(--surface); border-block: 1px solid 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .hero-logo img, .hero-logo::after, .pill .dot { animation: none; }
+  .pill .dot { animation: none; }
 }
 
 /* ── واکنش‌گرا ──────────────────────────────── */
